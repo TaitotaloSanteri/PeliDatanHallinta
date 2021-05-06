@@ -20,3 +20,22 @@ public class PlayerSaveData : BaseSaveData
     public float health;
     public int experiencePoints;
 }
+
+
+[System.Serializable]
+public class CollectibleSaveData : BaseSaveData
+{
+    // ComponentName -muuttujassa pidet‰‰n kirjaa ker‰tt‰v‰n esineen varsinaisesta tyypist‰.
+    // esim. HealthCollectible tai MoveSpeedCollectible
+    [HideInInspector] public string componentName;
+    // Value -muuttujassa pidet‰‰n kirjaa kuinka isolla m‰‰r‰ll‰ ker‰tt‰v‰ kasvattaa joko esimerkiksi
+    // healthia tai movespeedia.
+    public float value;
+}
+
+[System.Serializable]
+public class WorldSaveData
+{
+    public string dateAndTime;
+    public PlayerSaveData psd;
+}

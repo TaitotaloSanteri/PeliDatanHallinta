@@ -18,5 +18,18 @@ public class PlayerController : MonoBehaviour
         {
             WorldManagerScript.instance.SaveWorld("SaveFile.dat");
         }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            WorldManagerScript.instance.LoadWorld("SaveFile.dat");
+        }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Collectible"))
+        {
+            other.GetComponent<CollectibleBase>().OnCollected(psd);
+            Destroy(other.gameObject);
+        }
+    }
+
 }
